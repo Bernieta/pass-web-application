@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   OnDestroy,
@@ -23,7 +24,10 @@ export class HomePage implements AfterViewInit, OnDestroy {
   startDateTime: string = '';
   endDateTime: string = '';
 
-  constructor(private readonly homeService: HomeService) {}
+  constructor(
+    private readonly homeService: HomeService,
+    private change: ChangeDetectorRef
+  ) {}
 
   ngAfterViewInit(): void {
     this.updateButtonColor();
@@ -82,14 +86,16 @@ export class HomePage implements AfterViewInit, OnDestroy {
   }
 
   public getActiveDateTime() {
-    this.homeService
-      .getActiveDateTime()
-      .subscribe((value) => (this.startDateTime = value));
+    this.homeService.getActiveDateTime().subscribe((value) => {
+      this.startDateTime = value;
+      this.change.detectChanges();
+    });
   }
 
   public getDesactiveDateTime() {
-    this.homeService
-      .getDesactiveDateTime()
-      .subscribe((value) => (this.endDateTime = value));
+    this.homeService.getDesactiveDateTime().subscribe((value) => {
+      this.endDateTime = value;
+      this.change.detectChanges();
+    });
   }
 }
