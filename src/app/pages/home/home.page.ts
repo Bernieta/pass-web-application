@@ -65,7 +65,11 @@ export class HomePage implements AfterViewInit, OnDestroy {
   ) {
     const datetime1 = new Date(inputElementStart.value).getTime();
     const datetime2 = new Date(inputElementEnd.value).getTime();
-    if (datetime1 >= datetime2) {
+    if (
+      datetime1 >= datetime2 ||
+      inputElementStart.value === '' ||
+      inputElementEnd.value === ''
+    ) {
       this.alertActive = true;
       return;
     }
