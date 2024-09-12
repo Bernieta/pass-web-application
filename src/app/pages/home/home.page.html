@@ -1,0 +1,27 @@
+<main id="main">
+    <div class="container-button-power">
+        <button #buttonPower class="button-power" (click)="power()">
+            <i class="fa-solid fa-power-off"></i>
+        </button>
+    </div>
+
+    <div class="container-times">
+        <form action="" class="form-times">
+            <input type="datetime-local" name="" id="" #inputElementStart>
+            <input type="datetime-local" name="" id="" #inputElementEnd>
+            <button type="button" (click)="activeAndDesactiveDateTime(inputElementStart, inputElementEnd)">Guardar</button>
+        </form>
+        
+        <article class="times-definited">
+            <p class="alert" *ngIf="alertActive">No es posible registrar el horario, revise las fechas</p>
+            <div>
+                <strong>Se activa:</strong>
+                <span>{{ startDateTime | date: 'medium' }}</span>
+            </div>
+            <div>
+                <strong>Se desactiva:</strong>
+                <span>{{ endDateTime | date: 'medium' }}</span>
+            </div>
+        </article>
+    </div>
+</main>

@@ -1,0 +1,55 @@
+<main id="main">
+
+    <div class="container-form">
+        <form action="" class="form">
+            <div>
+                <input type="text" class="input" placeholder="@Usuario" #inputElement>
+            </div>
+            <div>
+                <button type="button" class="button-user" (click)="registerUser(inputElement)">Registrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-user-call">
+        <strong>Llamadas a:</strong>
+        <span>{{ userCall }}</span>
+    </div>
+
+    <div class="container-users">
+        <article class="users-info" *ngFor="let user of users">
+            <span>{{ user.username }}</span>
+            <div class="buttons-events">
+                <button type="button" style="background-color: #0dd267;" (click)="selectedUserCall(user.username)"><i
+                        class="fa-solid fa-phone"></i> </button>
+                <button type="button" style="background-color: #d20d0d;" (click)="deleteUser(user.key)"><i
+                        class="fa-solid fa-trash"></i> </button>
+            </div>
+        </article>
+
+        <!-- <article class="users-info">
+            <span>Usuario1</span>
+            <div class="buttons-events">
+                <button type="button" style="background-color: #0dd267;"><i class="fa-solid fa-phone"></i> </button>
+                <button type="button" style="background-color: #d20d0d;"><i class="fa-solid fa-trash"></i> </button>
+            </div>
+        </article>
+
+        <article class="users-info">
+            <span>Usuario1</span>
+            <div class="buttons-events">
+                <button type="button" style="background-color: #0dd267;"><i class="fa-solid fa-phone"></i> </button>
+                <button type="button" style="background-color: #d20d0d;"><i class="fa-solid fa-trash"></i> </button>
+            </div>
+        </article>
+
+        <article class="users-info">
+            <span>Usuario1</span>
+            <div class="buttons-events">
+                <button type="button" style="background-color: #0dd267;"><i class="fa-solid fa-phone"></i> </button>
+                <button type="button" style="background-color: #d20d0d;"><i class="fa-solid fa-trash"></i> </button>
+            </div>
+        </article> -->
+    </div>
+
+</main>
