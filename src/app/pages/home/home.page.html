@@ -5,6 +5,11 @@
         </button>
     </div>
 
+    <div class="alert-alarm" *ngIf="alarmActive === 1">
+        <span>Alarma sonando...</span>
+        <button type="button" (click)="disableAlarm()">Detener</button>
+    </div>
+
     <div class="container-times">
         <form action="" class="form-times">
             <div>

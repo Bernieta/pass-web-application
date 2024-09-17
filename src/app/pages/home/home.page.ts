@@ -23,6 +23,7 @@ export class HomePage implements AfterViewInit, OnDestroy {
   alertActive: boolean = false;
   startDateTime: string = '';
   endDateTime: string = '';
+  alarmActive: number;
 
   constructor(
     private readonly homeService: HomeService,
@@ -33,6 +34,7 @@ export class HomePage implements AfterViewInit, OnDestroy {
     this.updateButtonColor();
     this.getActiveDateTime();
     this.getDesactiveDateTime();
+    this.getValueAlarm();
   }
 
   ngOnDestroy(): void {
@@ -97,5 +99,15 @@ export class HomePage implements AfterViewInit, OnDestroy {
       this.endDateTime = value;
       this.change.detectChanges();
     });
+  }
+
+  public disableAlarm() {
+    this.homeService.disableAlarm(0);
+  }
+
+  public getValueAlarm() {
+    this.homeService.getValueAlarm().subscribe((value) => {
+      this.alarmActive = value;
+    })
   }
 }

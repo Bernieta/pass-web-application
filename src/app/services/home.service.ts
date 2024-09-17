@@ -71,4 +71,22 @@ export class HomeService {
       );
     });
   }
+
+  public disableAlarm(value: number) {
+    const query = ref(database, 'alarma');
+    set(query, value);
+  }
+
+  public getValueAlarm(): Observable<number> {
+    const query = ref(database, 'alarma');
+    return new Observable<number>((observer) => {
+      onValue(
+        query,
+        (snap) => {
+          observer.next(snap.val());
+        },
+        (error) => observer.error(error)
+      );
+    });
+  }
 }
