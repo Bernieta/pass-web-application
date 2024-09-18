@@ -5,6 +5,9 @@
             <button type="button" (click)="applyFilter(inputElementFilter)"><i class="fa-solid fa-filter"></i> Filtrar</button>
         </form>
         <div class="records">
+            <article class="record">
+                <p>{{ textActivationQuantities }}</p>
+            </article>
             <article class="record" *ngFor="let record of records; let count = index">
                 <strong>{{ count + 1 }}</strong>
                 <span>{{ record.date | date: 'medium' }}</span>

@@ -14,6 +14,7 @@ export class RecordsPage implements OnInit {
   records: Record[];
   inputDateDefaultValue: string;
   inputDateValue: string = '';
+  textActivationQuantities: string = '';
 
   constructor(private readonly recordService: RecordService) {}
 
@@ -30,12 +31,16 @@ export class RecordsPage implements OnInit {
   public getRecords() {
     this.recordService.getRecords().subscribe((values) => {
       const currentDate = new Date();
-      if (!this.inputDateValue) this.records = this.filter(values, currentDate);
+      if (!this.inputDateValue) {
+        this.records = this.filter(values, currentDate);
+        this.textActivationQuantities = `La alarma se ha activado ${this.records.length} veces hoy`;
+      }
       else {
         this.records = this.filter(
           values,
           new Date(`${this.inputDateValue}T00:00:00`)
         );
+        this.textActivationQuantities = `La alarma se activó ${this.records.length} veces`;
       }
     });
   }
