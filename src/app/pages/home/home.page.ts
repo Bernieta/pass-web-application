@@ -108,6 +108,7 @@ export class HomePage implements AfterViewInit, OnDestroy {
   public getValueAlarm() {
     this.homeService.getValueAlarm().subscribe((value) => {
       this.alarmActive = value;
-    })
+      this.change.detectChanges();
+    });
   }
 }

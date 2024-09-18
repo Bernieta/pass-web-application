@@ -1,8 +1,8 @@
 <main id="main">
     <div class="container-filter">
         <form action="" class="form-filter">
-            <input type="datetime-local" name="start" id="start" #inputElementFilter>
-            <button type="button"><i class="fa-solid fa-filter"></i> Filtrar</button>
+            <input type="date" name="start" id="start" [value]="inputDateDefaultValue" #inputElementFilter>
+            <button type="button" (click)="applyFilter(inputElementFilter)"><i class="fa-solid fa-filter"></i> Filtrar</button>
         </form>
         <div class="records">
             <article class="record" *ngFor="let record of records; let count = index">

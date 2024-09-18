@@ -130,7 +130,7 @@
     border: none;
     color: var(--text-color);
     border-radius: .5rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     cursor: pointer;
 }
@@ -141,9 +141,3 @@
         width: 100%;
     }
 }
-
-
-/* .button-power:hover {
-    transform: translateY(-2px); 
-    box-shadow: 1px 1px 2px 2px #0dd267;
-} */
