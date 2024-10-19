@@ -12,13 +12,16 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomePage,
+    title: 'Inicio'
   },
   {
     path: 'historial',
     component: RecordsPage,
+    title: 'Historial'
   },
   {
     path: 'telegram',
     component: NitificationPage,
+    title: 'Telegram - Llamadas'
   },
 ];
